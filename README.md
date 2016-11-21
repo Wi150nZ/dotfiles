@@ -9,7 +9,7 @@ npm install -g n
 sudo n 0.10.36 
 nano start.sh
 
-#!/bin/bash 
+ #!/bin/bash 
 n use 0.10.36 app.js 
 
 chmod +x start.sh
