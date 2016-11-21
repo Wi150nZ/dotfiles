@@ -1,4 +1,4 @@
-## My config files for Arch Linux
+## My configuration for Arch Linux
 
 ## Important info
 xf86-input-synaptics // for touchpad  
