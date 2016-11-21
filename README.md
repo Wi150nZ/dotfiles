@@ -1,6 +1,6 @@
 ## My configuration for Arch Linux
 
-# Touchpad: the driver package 
+### Touchpad: the driver package 
 xf86-input-synaptics 
-# Wifi config path
+### Wifi config path
 /etc/modprobe.d/iwlwifi.conf
