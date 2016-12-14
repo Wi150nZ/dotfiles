@@ -28,7 +28,9 @@ set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace10 "10: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -57,7 +59,9 @@ for_window [class="Transmission-gtk"] floating enable . border pixel
 assign [class="Google-chrome"] $workspace2
 assign [class="Atom"] $workspace3
 assign [class="^(?i)libreoffice.*"] $workspace4
-assign [class="Transmission-gtk"] $workspace10
+assign [class="Transmission-gtk"] $workspace8
+assign [class="Kodi"] $workspace9
+for_window [class="Spotify"] move to workspace $workspace10
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -67,8 +71,8 @@ bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
@@ -79,8 +83,8 @@ bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # change focus
@@ -147,6 +151,10 @@ bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
+# media controls (mpc)
+bindsym $mod+m exec mpc toggle
+bindsym $mod+n exec mpc next
+
 # window colors
 #                       border  background text    indicator
 client.focused          $base01 $base01    $base07 $base0F
@@ -181,3 +189,6 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# auto-started applications at bootup
+exec urxvt
