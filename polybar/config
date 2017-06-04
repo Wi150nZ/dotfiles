@@ -1,0 +1,207 @@
+[colors]
+background = #222
+foreground = #dfdfdf
+
+[bar/main]
+monitor = "LVDS-1"
+
+; bar dimensions
+width = 100%
+height = 25
+padding-left = 1
+padding-right = 1
+fixed-center = true
+
+font-0 = "Ubuntu Mono:size=11;0"
+font-1 = "Ubuntu Mono:size=11;0"
+font-2 = "FontAwesome:size=9;0"
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+; system tray
+tray-position = right
+tray-padding = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = i3
+modules-center = date
+modules-right = wlan volume cpu memory battery
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+strip-wsnumbers = true
+pin-workspaces = true
+
+label-mode-padding = 5
+label-mode-foreground = #ffffff
+
+label-unfocused-foreground = #888888
+label-unfocused-padding = 1
+
+label-visible-foregroud = #888888
+label-visible-padding = 1
+
+label-focused-foreground = #ffffff
+label-focused-padding = 1
+
+label-urgent-padding = 1
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+
+[module/backlight-acpi]
+type = internal/backlight
+card = intel_backlight
+
+format = <label> <bar>
+label = 
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+
+[module/cpu]
+type = internal/cpu
+format = <label>
+label = cpu %percentage%%
+
+
+[module/memory]
+type = internal/memory
+label = mem %percentage_used%%
+
+
+[module/wlan]
+type = internal/network
+interface = wls1
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+format-packetloss = <animation-packetloss> <label-connected>
+
+label-connected = %essid% %downspeed:9%
+label-connected-foreground = #eefafafa
+;label-connected-padding = 10
+
+label-disconnected = not connected
+label-disconnected-foreground = #66ffffff
+
+
+[module/eth]
+type = internal/network
+interface = eth0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %d/%m/%Y
+time = %I:%M
+
+label = %date%  %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = ""
+label-volume-foreground = ${root.foreground}
+label-muted = muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground =
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
