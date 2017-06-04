@@ -1,194 +1,156 @@
 # i3 config file (v4)
 #
-# NOTE: run i3-config-wizard to regenerate this file
-# REFERENCE: http://i3wm.org/docs/userguide.html
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-font pango:tamsyn 11
-
-# Constants
+# keys
 set $mod Mod4
-set $base00 #101218
-set $base01 #1f222d
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
-set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #fcc09e
+set $alt Mod1
 
+# workspace
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace8 "8: "
-set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# window colors
+#                       border   background  text     indicator
+client.focused          #1C2023  #1C2023     #ffffff  #C7CCD1
+client.focused_inactive #1C2023  #1C2023     #7780a1  #C7CCD1
+client.unfocused        #1C2023  #1C2023     #7780a1  #C7CCD1
+client.urgent           #1C2023  #EE3667     $101218  #C7CCD1
+
+# font
+font pango:Ubuntu Mono 9
+
+# dragging floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+x exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+F4 kill
+bindsym $alt+F4 kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -i -l 5 -p "Run >" -fn tamsyn
+# rofi- program launcher
+bindsym $mod+space exec rofi -font "Ubuntu Mono 11" -show run
 
-# start thunar
-bindsym $mod+space exec thunar
+# switching between workspaces
+workspace_auto_back_and_forth yes
+bindsym $alt+Tab workspace back_and_forth
 
-# start google-chrome
-bindsym $mod+c exec google-chrome-stable
+# split orientation
+bindsym $mod+q split h;exec notify-send 'tile horizontally'
+bindsym $mod+w split v;exec notify-send 'tile vertically'
 
-# window properties
-for_window [class="URxvt"] floating enable. border pixel
-for_window [class="Thunar"] floating enable. border pixel
-for_window [class="Transmission-gtk"] floating enable . border pixel
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
 
-# workspace assignments
-assign [class="Google-chrome"] $workspace2
-assign [class="Atom"] $workspace3
-assign [class="^(?i)libreoffice.*"] $workspace4
-assign [class="Transmission-gtk"] $workspace8
-assign [class="Kodi"] $workspace9
-for_window [class="Spotify"] move to workspace $workspace10
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+F1 layout stacking; exec notify-send 'stacking layout'
+bindsym $mod+F2 layout tabbed; exec notify-send 'tabbed layout'
+bindsym $mod+F3 layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+e floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+$alt focus mode_toggle
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+F2 layout stacking
-#s w e
-bindsym $mod+F3 layout tabbed
-bindsym $mod+F1 layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Home floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+Return focus mode_toggle
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
 bindsym $mod+r mode "resize"
+mode "resize" {
+  bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
 
-# volume control
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow width 10 px or 10 ppt
 
-# media controls (mpc)
-bindsym $mod+m exec mpc toggle
-bindsym $mod+n exec mpc next
-
-# window colors
-#                       border  background text    indicator
-client.focused          $base01 $base01    $base07 $base0F
-client.focused_inactive $base02 $base02    $base03 $base0F
-client.unfocused        $base02 $base02    $base03 $base0F
-client.urgent           $base02 $base08    $base00 $base0F
-
-# status bar
-bar {
-  position top
-  status_command i3blocks
-  colors {
-    separator  $base03
-    background $base01
-    statusline $base05
-    #                  border  background text
-    focused_workspace  $base01 $base01    $base07
-    active_workspace   $base01 $base02    $base03
-    inactive_workspace $base01 $base01    $base03
-    urgent_workspace   $base01 $base01    $base08
-    }
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
-# compton
-exec_always compton -f
+# audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-# reload the configuration file
+# i3 config actions
 bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+bindsym $mod+Escape exec "i3-nagbar -t warning -m 'logout?' -b 'yes' 'i3-msg exit'"
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Escape exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+# startup applications
+exec_always compton -f
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec nitrogen --restore &
+exec i3-sensible-terminal
 
-# auto-started applications at bootup
-exec urxvt
+# application assignments
+assign [class="Chromium-browser"] $workspace2
+assign [class="Atom"] $workspace3
+assign [class="Steam"] $workspace5
+
+# open specific applications in floating mode
+for_window [class="Xfce4-terminal"] floating enable border
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Thunar"] floating enable border normal
+for_window [class="Steam"] floating enable border normal
+
+# useless keybinds (not used) ###########################
+# change focus
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# move focused window
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+
+# focus the parent container
+# bindsym $mod+a focus parent
+
+# focus the child container
+# bindsym $mod+d focus child
+#########################################################
