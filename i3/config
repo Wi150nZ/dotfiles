@@ -113,9 +113,9 @@ exec nitrogen --restore &
 exec i3-sensible-terminal
 
 # application assignments
-assign [class="Chromium-browser"] $workspace2
-assign [class="Atom"] $workspace3
-assign [class="Steam"] $workspace5
+assign [class="Chromium-browser"] 2
+assign [class="Atom"] 3
+assign [class="Steam"] 5
 
 # open specific applications in floating mode
 for_window [class="Xfce4-terminal"] floating enable border
