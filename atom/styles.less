@@ -5,13 +5,19 @@ atom-text-editor::shadow {
   }
 }
 
+// font
+atom-workspace {
+    font-family: Mononoki;
+    font-size: 20;
+}
+
 // 3-d effect
 #atom-perspective() {
 
   @viewing-distance: 12in;
   @rotation: 20deg;
 
-  .tree-view-scroller {
+  .tree-view {
     transform: translateY(-10vh) perspective(@viewing-distance) rotateY(@rotation);
     padding-top: 12vh;
     padding-bottom: 12vh;
