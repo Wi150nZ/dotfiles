@@ -1,4 +1,4 @@
-## doots
+## SETUP
 - OS: Ubuntu (Barebones)
 - Minimal XFCE & i3 (with polybar)
 - GTK: Adapta Nokto Eta
