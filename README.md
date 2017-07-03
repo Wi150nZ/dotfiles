@@ -6,6 +6,5 @@
 - Icons: Paper
 
 ## TODO
-- setup my vim configuration
-- setup powerline (ashes dark)
-  - bonus: make this working for WSL (need to install powerline fonts correctly)
+- setup my vim configuration and upload them
+- setup cmder with WSL
