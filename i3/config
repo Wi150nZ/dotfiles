@@ -114,7 +114,7 @@ exec i3-sensible-terminal
 
 # application assignments
 assign [class="Chromium-browser"] 2
-assign [class="Atom"] 3
+assign [class="Code"] 3
 assign [class="Steam"] 5
 
 # open specific applications in floating mode
