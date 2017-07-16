@@ -1,0 +1,13 @@
+// my visual studio code settings
+{
+	"editor.acceptSuggestionOnEnter": "on",
+	"editor.cursorBlinking": "phase",
+	"editor.detectIndentation": true,
+	"editor.folding": true,
+	"editor.formatOnPaste": true,
+	"editor.fontFamily": "monospace",
+	"editor.fontSize": 14,
+	"editor.tabSize": 2,
+	"workbench.colorTheme": "Tomorrow Night (Sublime)",
+	"workbench.iconTheme": "vscode-icons"
+}
