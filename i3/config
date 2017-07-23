@@ -96,6 +96,9 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
+# print screen
+bindsym Print exec "scrot ~/Screenshot%Y-%m-%d%H:%M:%S.png"
+
 # audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -113,8 +116,10 @@ exec nitrogen --restore &
 exec i3-sensible-terminal
 
 # application assignments
-assign [class="Chromium-browser"] 2
+assign [class="Google-chrome"] 2
 assign [class="Code"] 3
+assign [class="Clementine"] 4
+assign [class="Spotify"] 4
 assign [class="Steam"] 5
 
 # open specific applications in floating mode
@@ -122,6 +127,8 @@ for_window [class="Xfce4-terminal"] floating enable border
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Thunar"] floating enable border normal
 for_window [class="Steam"] floating enable border normal
+for_window [class="Clementine"] floating enable border normal
+for_window [class="Spotify"] floating enable border normal
 
 # useless keybinds (not used) ###########################
 # change focus
