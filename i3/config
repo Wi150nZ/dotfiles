@@ -112,6 +112,7 @@ bindsym $mod+Escape exec "i3-nagbar -t warning -m 'logout?' -b 'yes' 'i3-msg exi
 # startup applications
 exec_always compton -f
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id $HOME/scripts/randomWallpaper.sh
 exec nitrogen --restore &
 exec i3-sensible-terminal
 
