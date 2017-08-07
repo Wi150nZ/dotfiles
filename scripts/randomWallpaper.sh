@@ -1,6 +1,6 @@
-# this is simple script for setting a random wallpaper everytime x server is started
-
 #!/bin/bash
+
+# this is simple script for setting a random wallpaper everytime x server is started
 
 dir="/home/wilson/Pictures"
 
