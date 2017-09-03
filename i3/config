@@ -6,28 +6,23 @@
 set $mod Mod4
 set $alt Mod1
 
-# g a p s
-gaps outer 5
-gaps inner 5
-
 # workspace
-# set $workspace1 "1: "
-# set $workspace2 "2: "
-# set $workspace3 "3: "
-# set $workspace4 "4: "
-# set $workspace5 "5: "
-# set $workspace6 "6: "
-# set $workspace7 "7: "
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
 
-# window colors
-#                       border   background  text     indicator
-client.focused          #1C2023  #1C2023     #ffffff  #C7CCD1
-client.focused_inactive #1C2023  #1C2023     #7780a1  #C7CCD1
-client.unfocused        #1C2023  #1C2023     #7780a1  #C7CCD1
-client.urgent           #1C2023  #EE3667     $101218  #C7CCD1
+# class                 border   backgr.  text     indicator child_border
+client.focused          #2b2b2b  #2b2b2b  #a9b7c6  #6897bb   #6897bb
+client.unfocused        #2b2b2b  #2b2b2b  #a9b7c6  #6897bb   #6897bb
+client.focused_inactive #2b2b2b  #2b2b2b  #a9b7c6  #6897bb   #6897bb
+client.urgent           #ff0000  #2b2b2b  #a9b7c6  #6897bb   #000000
+new_window pixel 0
+new_float pixel 0
 
 # font
-font pango:Ubuntu Mono 9
+font pango:Roboto Mono for Powerline 9
 
 # dragging floating windows
 floating_modifier $mod
@@ -64,22 +59,18 @@ bindsym $mod+e floating toggle
 bindsym $mod+$alt focus mode_toggle
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
@@ -100,6 +91,16 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
+# move floating window
+bindsym $mod+m focus floating; mode "move"
+mode "move" {
+  bindsym Up move up 10px
+  bindsym Left move left 10px
+  bindsym Down move down 10px
+  bindsym Right move right 10px
+  bindsym Escape mode "default"
+}
+
 # print screen
 bindsym Print exec "scrot ~/Screenshot%Y-%m-%d%H:%M:%S.png"
 
@@ -115,25 +116,21 @@ bindsym $mod+Escape exec "i3-nagbar -t warning -m 'logout?' -b 'yes' 'i3-msg exi
 
 # startup applications
 exec_always compton -f
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec --no-startup-id $HOME/scripts/randomWallpaper.sh => do not need until more wallpapers are added
-exec nitrogen --restore &
+exec wal -i $HOME/Pictures
 exec i3-sensible-terminal
+exec spotify
 
 # application assignments
-assign [class="Google-chrome"] 2
-assign [class="Code"] 3
-assign [class="Clementine"] 4
-assign [class="Spotify"] 4
-assign [class="Steam"] 5
+assign [class="Google-chrome"] $workspace2
+assign [class="Code"] $workspace3
+assign [class="Transmission-gtk"] $workspace5
+
+for_window [class="Spotify"] move to workspace $workspace4
 
 # open specific applications in floating mode
-for_window [class="Xfce4-terminal"] floating enable border
+for_window [class="URxvt"] floating enable border
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Thunar"] floating enable border normal
-for_window [class="Steam"] floating enable border normal
-for_window [class="Clementine"] floating enable border normal
-for_window [class="Spotify"] floating enable border normal
 
 # useless keybinds (not used) ###########################
 # change focus
@@ -166,3 +163,16 @@ for_window [class="Spotify"] floating enable border normal
 # focus the child container
 # bindsym $mod+d focus child
 #########################################################
+
+
+bar {
+  colors {
+    background #2b2b2b
+    statusline #ffffff
+    separator #666666
+    focused_workspace  #5e7587 #5e7587 #ffffff
+  }
+
+  position top
+  status_command i3blocks
+}
