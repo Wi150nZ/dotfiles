@@ -1,13 +1,19 @@
 " author: Wilson Zhu
 
-" general settings
-set noshowmode
-syntax on
+" plugin manager
+call plug#begin('~/.local/share/nvim/plugged')
+
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+	Plug 'rafi/awesome-vim-colorschemes'
+
+call plug#end()
+
+" general settings 
+set number
 set shiftwidth=2
 set tabstop=2
-set number
 set scrolloff=2
-set laststatus=2
 
 " wildmenu
 set wildignorecase
@@ -19,16 +25,19 @@ set ignorecase
 set smartcase
 
 " airline settings
+set noshowmode
+set laststatus=2
 let g:airline_powerline_fonts=1
-let g:airline_theme='jellybeans'
+let g:airline_theme='luna'
 
-" plugins
-call plug#begin('~/.local/share/nvim/plugged')
+function! AirlineInit()
+	let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+	let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
+endfunction
 
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'flazz/vim-colorschemes'
+" theme
+colorscheme iceberg
+syntax on
 
-call plug#end()
-
-colorscheme jellybeans
+" function calls
+autocmd VimEnter * call AirlineInit()
