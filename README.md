@@ -1,9 +1,7 @@
 ## SETUP
-- OS: Linux Mint (MATE edition)
-- Theme: Arc OSX (Dark)
-- Fonts: Roboto Mono for Powerline (size 10)
-- Icons: Paper
+![image](https://github.com/Wi150nZ/dotfiles/blob/master/configuration.png)
+- panel layout: cupertino with global menu and extra panel with workspace switcher
 
 ## TODO
-- add workspace gesture functionality
-- add nvim configuration
+- bind workspace switching to touchpad gestures
+- continue ricing neovim
