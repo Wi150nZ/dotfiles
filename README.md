@@ -5,3 +5,7 @@
 ## TODO
 - bind workspace switching to touchpad gestures
 - continue ricing neovim
+	- creating panels vertically: ctrl+u/i
+	- creating panels horizontally: ctrl+o/p
+	- moving left/right: ctrl+j/k
+	- moving up/down: ctrl+l/;
