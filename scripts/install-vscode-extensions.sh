@@ -3,13 +3,6 @@
 EXT_FILE="./configurations/vscode/extensions.txt"
 CODE_EXIST=$(command -v code)
 
-# check if extensions file argument was passed
-if [ -z "$EXT_FILE" ]
-then
-  echo "extensions file cannot be found in the ./configurations/vscode/ directory"
-  exit 1
-fi
-
 # check if code exists in the environment
 if [ -z "$CODE_EXIST" ]
 then
