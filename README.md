@@ -1,11 +1,11 @@
-## SETUP
-![image](https://github.com/Wi150nZ/dotfiles/blob/master/configuration.png)
-- panel layout: cupertino with global menu and extra panel with workspace switcher
+## dotfiles
+personal configurations for mac/linux
 
-## TODO
-- bind workspace switching to touchpad gestures
-- continue ricing neovim
-	- creating panels vertically: ctrl+u/i
-	- creating panels horizontally: ctrl+o/p
-	- moving left/right: ctrl+j/k
-	- moving up/down: ctrl+l/;
+### todos
+- add popOS config files
+- create scripts directory
+	- complete `install-vscode-extensions` script
+	- create script for install homebrew
+
+### changelogs
+- 5/27/19 -> added macOS config files for vscode and bash terminal

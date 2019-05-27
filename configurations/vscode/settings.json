@@ -1,0 +1,28 @@
+{
+  "editor.cursorBlinking": "phase",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/Users/wilson.zhu/.vscode/extensions/gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\"",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "workbench.startupEditor": "newUntitledFile",
+  "java.saveActions.organizeImports": true,
+  "explorer.confirmDelete": false,
+  "editor.fontFamily": "Dank Mono, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.iconTheme": "vscode-icons",
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.editor.showTabs": true,
+  "workbench.activityBar.visible": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.tree.indent": 4,
+  "typescript.updateImportsOnFileMove.enabled": "always"
+}
