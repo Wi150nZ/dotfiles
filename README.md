@@ -5,7 +5,7 @@ personal configurations for mac/linux
 - add popOS config files
 - create scripts directory
 	- complete `install-vscode-extensions` script
-	- create script for install homebrew
+	- complete `setup-mac-minikube` script
 
 ### changelogs
 - 5/27/19 -> added macOS config files for vscode and bash terminal
