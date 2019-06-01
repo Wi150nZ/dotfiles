@@ -9,3 +9,4 @@ personal configurations for mac/linux
 
 ### changelogs
 - 5/27/19 -> added macOS config files for vscode and bash terminal
+- 5/31/19 -> added FiraCode font and partially completed minikube installation script for macOS
