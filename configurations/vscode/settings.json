@@ -15,14 +15,14 @@
   "workbench.startupEditor": "newUntitledFile",
   "java.saveActions.organizeImports": true,
   "explorer.confirmDelete": false,
-  "editor.fontFamily": "Dank Mono, Menlo, Monaco, 'Courier New', monospace",
-  "workbench.iconTheme": "vscode-icons",
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
   "java.errors.incompleteClasspath.severity": "ignore",
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.editor.showTabs": true,
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreview": false,
-  "workbench.tree.indent": 4,
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.tree.indent": 5,
+  "workbench.colorTheme": "Material Theme Darker"
 }
