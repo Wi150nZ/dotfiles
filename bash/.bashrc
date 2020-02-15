@@ -118,14 +118,15 @@ fi
 
 # bash prompt with git support
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
 }
 
 USER="\[\e[1;34m\]\u\[\e[0m\]"
-HOST="\[\e[1;32m\]\h\[\e[0m\]"
+HOST="\[\e[1;35m\]\h\[\e[0m\]"
+WORKING_DIR="\[\e[1;32m\]\W\[\e[0m\]"
 GIT="\[\e[32m\]\$(parse_git_branch)\[\e[39m\]"
 
-export PS1="$USER@$HOST::$GIT » "
+export PS1="$USER@$HOST::$WORKING_DIR$GIT » "
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
