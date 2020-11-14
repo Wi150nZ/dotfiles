@@ -1,5 +1,5 @@
 ## dotfiles
-personal configurations for windows subsystem linux
+personal configurations for windows subsystem linux and mac
 
 ### `.bashrc` vs `.bash_profile`
 - `.bash_profile` is used whenever logging in while `.bashrc` is for "interactive non-login shells"
