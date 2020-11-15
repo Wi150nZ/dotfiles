@@ -117,16 +117,27 @@ if ! shopt -oq posix; then
 fi
 
 # bash prompt with git support
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ [\1]/'
+git_status() {
+    branch_name=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+    branch_status=$(git status --porcelain=v1 2>/dev/null | wc -l | awk '{$1=$1};1')
+
+    if [[ $branch_name == "" ]]; then
+        :
+    else
+        if [[ $branch_status == 0 ]]; then
+            echo ':: ['$branch_name'] '
+        else
+            echo ':: ['$branch_name'*] '
+        fi
+    fi
 }
 
-USER="\[\e[1;34m\]\u\[\e[0m\]"
-HOST="\[\e[1;35m\]\h\[\e[0m\]"
-WORKING_DIR="\[\e[1;32m\]\W\[\e[0m\]"
-GIT="\[\e[32m\]\$(parse_git_branch)\[\e[39m\]"
+USER="\u"
+HOST="\h"
+WORKING_DIR="\W"
+GIT="\$(git_status)"
 
-export PS1="$USER@$HOST::$WORKING_DIR$GIT » "
+export PS1="$WORKING_DIR $GIT> "
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
