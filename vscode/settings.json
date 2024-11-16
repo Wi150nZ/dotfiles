@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "'Space Mono', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Fira Code Light'",
   "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
   "window.titleBarStyle": "custom",
