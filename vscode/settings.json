@@ -1,9 +1,8 @@
 {
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
-  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-  "workbench.colorTheme": "One Dark Pro",
-  "editor.cursorBlinking": "phase",
-  "editor.minimap.enabled": false,
+  "editor.fontFamily": "'Space Mono', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "workbench.iconTheme": "vscode-icons"
+  "editor.minimap.enabled": false,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "material-icon-theme",
 }
