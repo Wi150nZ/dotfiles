@@ -4,7 +4,7 @@ prog "Steam" /home/wilson/.local/share/icons/Papirus/24x24/apps/com.valvesoftwar
 
 prog "Discord" /home/wilson/.local/share/icons/Papirus/24x24/apps/com.discordapp.Discord.svg flatpak run dev.vencord.Vesktop
 
-prog "VS Code" /home/wilson/.local/share/icons/Papirus/24x24/apps/vscode.svg flatpak flatpak run com.visualstudio.code
+prog "VS Code" /home/wilson/.local/share/icons/Papirus/24x24/apps/vscode.svg flatpak run com.visualstudio.code
 
 menu "Multimedia" applications-multimedia {
     prog "Spotify" /home/wilson/.local/share/icons/Papirus/24x24/apps/com.spotify.Client.svg flatpak run com.spotify.Client
